@@ -1,0 +1,7 @@
+.firstChild > button{
+    background-color: aliceblue;
+}
+
+.firstChild > button:hover{
+    background-color: blue;
+}
