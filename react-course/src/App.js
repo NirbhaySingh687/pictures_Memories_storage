@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Posts from "./Component/Posts/Posts";
 import {Container, AppBar, Typography, Grow, Grid, styled} from "@mui/material";
 import memories from "./images/memories.png"
@@ -25,6 +25,7 @@ const CustomHeading = styled(Typography)(()=> ({
 
 function App(){
     const dispatch = useDispatch()
+    const [ currentId, setCurrentId] = useState(null)
     useEffect(() => {
         dispatch(getPost())
     },[])
@@ -38,10 +39,10 @@ function App(){
                 <Container>
                     <Grid container justifyContent="space-between" alignItems="stretch" spacing={1}>
                         <Grid item xs={12} sm={7 }>
-                            <Posts />
+                            <Posts setCurrentId={setCurrentId}/>
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Form />
+                            <Form currentId={currentId} setCurrentId={setCurrentId}/>
                         </Grid>
                     </Grid>
                 </Container>
